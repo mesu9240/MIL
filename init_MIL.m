@@ -50,8 +50,12 @@ curr_adc_gain = 0.6247; % [A]/digit
 
 % constants in SW
 FOC_CURR_NULLIFICATION = 511;
-FOC_CURR_GAIN_SCU10 = 640; % 0.6247 * 1024 = 640
-ONEDIVSQRT3_SCU16 = 37837; % 1/sqrt(3) << 16 = 37837.227;
+FOC_CURR_GAIN_SCU10    = 640; % 0.6247 * 1024 = 640
+ONEDIVSQRT3_SCU16      = 37837; % 1/sqrt(3) << 16 = 37837.227;
+MOT_RES_SCU19          = 2964;      % @80°C: 5,654e-3Ohm << 19 = 2964 ; @20°C: 4.575e-3Ohm << 19 = 2399
+MOT_INDUCTANCE_SCU19   = 3;         % L = 5.683e-6 -> *2^19 ~ 3
+FOC_SAMPLE_FREQ_HZ     = 28000; % switching frequency
+FOC_K_FACTOR_FLUX_EST  = 550;  % flux feedback correction
 % speed controlller
 Set_Speed_rpm = 50000; % speed reference in 1/min
 Kpi_n = 0.0015;

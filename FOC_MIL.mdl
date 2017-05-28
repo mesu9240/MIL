@@ -1,12 +1,12 @@
 Model {
-  Name			  "eBooster_48v_Gen2_r2009a"
+  Name			  "FOC_MIL"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.613"
+    ComputedModelVersion    "1.631"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -22,16 +22,16 @@ Model {
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  InitFcn		  "init_simulation"
+  InitFcn		  "init_MIL"
   Created		  "Mon Feb 24 13:21:25 2014"
   Creator		  "tree5_000"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "meng"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri May 26 22:26:45 2017"
-  RTWModifiedTimeStamp	  417712735
-  ModelVersionFormat	  "1.%<AutoIncrement:613>"
+  LastModifiedDate	  "Sat May 27 17:07:28 2017"
+  RTWModifiedTimeStamp	  417795035
+  ModelVersionFormat	  "1.%<AutoIncrement:631>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -934,6 +934,19 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      SignalSpecification
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      Dimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+    }
+    Block {
       BlockType		      Signum
       ZeroCross		      on
       SampleTime	      "-1"
@@ -1019,9 +1032,9 @@ Model {
     }
   }
   System {
-    Name		    "eBooster_48v_Gen2_r2009a"
-    Location		    [323, 75, 1393, 731]
-    Open		    on
+    Name		    "FOC_MIL"
+    Location		    [388, 75, 1458, 731]
+    Open		    off
     ModelBrowserVisibility  on
     ModelBrowserWidth	    259
     ScreenColor		    "white"
@@ -1034,7 +1047,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "104"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "998"
+    SIDHighWatermark	    "1046"
     Block {
       BlockType		      Demux
       Name		      "Demux"
@@ -1060,7 +1073,7 @@ Model {
       Name		      "FLEXPWM_SPC560"
       SID		      "957"
       Ports		      [3, 2]
-      Position		      [725, 409, 845, 561]
+      Position		      [600, 394, 720, 546]
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -6784,7 +6797,7 @@ Model {
       Name		      "eBooster_Controller"
       SID		      "266"
       Ports		      [1, 1, 1]
-      Position		      [780, 107, 900, 343]
+      Position		      [725, 107, 845, 343]
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -6848,7 +6861,7 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "83"
+	    ZoomFactor		    "90"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "s_s16_I_alpha"
@@ -7873,15 +7886,6 @@ Model {
 	      }
 	    }
 	    Block {
-	      BlockType		      Constant
-	      Name		      "ACR_output_Sel"
-	      SID		      "362"
-	      Position		      [980, 395, 1015, 415]
-	      BackgroundColor	      "red"
-	      Value		      "sel_udq"
-	      SampleTime	      "T_ctrl"
-	    }
-	    Block {
 	      BlockType		      SubSystem
 	      Name		      "ASR"
 	      SID		      "363"
@@ -8774,56 +8778,6 @@ Model {
 	      }
 	    }
 	    Block {
-	      BlockType		      SubSystem
-	      Name		      "FluxEstimator"
-	      SID		      "410"
-	      Ports		      [1, 1]
-	      Position		      [245, 149, 345, 191]
-	      MinAlgLoopOccurrences   off
-	      PropExecContextOutsideSubsystem off
-	      RTWSystemCode	      "Auto"
-	      FunctionWithSeparateData off
-	      Opaque		      off
-	      RequestExecContextInheritance off
-	      MaskHideContents	      off
-	      System {
-		Name			"FluxEstimator"
-		Location		[433, 403, 931, 703]
-		Open			off
-		ModelBrowserVisibility	on
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		Block {
-		  BlockType		  Inport
-		  Name			  "In1"
-		  SID			  "411"
-		  Position		  [110, 103, 140, 117]
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Outport
-		  Name			  "Out1"
-		  SID			  "412"
-		  Position		  [360, 103, 390, 117]
-		  IconDisplay		  "Port number"
-		}
-		Line {
-		  SrcBlock		  "In1"
-		  SrcPort		  1
-		  DstBlock		  "Out1"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Block {
 	      BlockType		      Ground
 	      Name		      "Ground"
 	      SID		      "413"
@@ -9206,26 +9160,6 @@ Model {
 	      OutPortSampleTime	      "T_ctrl"
 	    }
 	    Block {
-	      BlockType		      Switch
-	      Name		      "Switch"
-	      SID		      "435"
-	      Position		      [1185, 390, 1215, 420]
-	      ShowName		      off
-	      Threshold		      "0.5"
-	      InputSameDT	      off
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Switch
-	      Name		      "Switch1"
-	      SID		      "436"
-	      Position		      [1185, 425, 1215, 455]
-	      ShowName		      off
-	      Threshold		      "0.5"
-	      InputSameDT	      off
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
 	      BlockType		      UnitDelay
 	      Name		      "Unit Delay1"
 	      SID		      "437"
@@ -9278,7 +9212,7 @@ Model {
 		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"145"
+		ZoomFactor		"73"
 		Block {
 		  BlockType		  Inport
 		  Name			  "ud"
@@ -11944,6 +11878,714 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      SubSystem
+	      Name		      "_2_FLUX_ESTIMATOR"
+	      SID		      "410"
+	      Ports		      [4, 2]
+	      Position		      [170, 177, 320, 278]
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"_2_FLUX_ESTIMATOR"
+		Location		[433, 403, 931, 703]
+		Open			on
+		ModelBrowserVisibility	on
+		ModelBrowserWidth	324
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"80"
+		Block {
+		  BlockType		  Inport
+		  Name			  "s_s32_V_alpha"
+		  SID			  "411"
+		  Position		  [50, 68, 80, 82]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "s_s32_V_beta"
+		  SID			  "999"
+		  Position		  [80, 428, 110, 442]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "s_s16_I_alpha"
+		  SID			  "1000"
+		  Position		  [50, 173, 80, 187]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "s_s16_I_beta"
+		  SID			  "1001"
+		  Position		  [80, 528, 110, 542]
+		  Port			  "4"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add"
+		  SID			  "1007"
+		  Ports			  [2, 1]
+		  Position		  [505, 67, 535, 98]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add1"
+		  SID			  "1008"
+		  Ports			  [2, 1]
+		  Position		  [655, 152, 685, 183]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add2"
+		  SID			  "1033"
+		  Ports			  [2, 1]
+		  Position		  [535, 427, 565, 458]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add3"
+		  SID			  "1017"
+		  Ports			  [2, 1]
+		  Position		  [835, 192, 865, 223]
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add4"
+		  SID			  "1034"
+		  Ports			  [2, 1]
+		  Position		  [685, 512, 715, 543]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add5"
+		  SID			  "1035"
+		  Ports			  [2, 1]
+		  Position		  [865, 552, 895, 583]
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  DataTypeConversion
+		  Name			  "Data Type Conversion"
+		  SID			  "1012"
+		  Position		  [290, 233, 365, 267]
+		  OutDataTypeStr	  "int32"
+		  RndMeth		  "Floor"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  DataTypeConversion
+		  Name			  "Data Type Conversion1"
+		  SID			  "1036"
+		  Position		  [320, 593, 395, 627]
+		  OutDataTypeStr	  "int32"
+		  RndMeth		  "Floor"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "FOC_K_FACTOR_FLUX_EST"
+		  SID			  "1016"
+		  Position		  [720, 260, 750, 290]
+		  BlockMirror		  on
+		  Gain			  "FOC_K_FACTOR_FLUX_EST"
+		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "FOC_K_FACTOR_FLUX_EST1"
+		  SID			  "1037"
+		  Position		  [750, 620, 780, 650]
+		  BlockMirror		  on
+		  Gain			  "FOC_K_FACTOR_FLUX_EST"
+		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ"
+		  SID			  "1014"
+		  Position		  [410, 231, 590, 269]
+		  Gain			  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ"
+		  ParamDataTypeStr	  "uint32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ1"
+		  SID			  "1038"
+		  Position		  [440, 591, 620, 629]
+		  Gain			  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ"
+		  ParamDataTypeStr	  "uint32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "MOT_RES_SCU1"
+		  SID			  "1039"
+		  Position		  [260, 515, 460, 555]
+		  Gain			  "MOT_RES_SCU19"
+		  ParamDataTypeStr	  "uint16"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "MOT_RES_SCU19"
+		  SID			  "1006"
+		  Position		  [230, 155, 430, 195]
+		  Gain			  "MOT_RES_SCU19"
+		  ParamDataTypeStr	  "uint16"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "Shift\nArithmetic"
+		  SID			  "1005"
+		  Ports			  [1, 1]
+		  Position		  [235, 55, 315, 95]
+		  LibraryVersion	  "1.225"
+		  SourceBlock		  "simulink/Logic and Bit\nOperations/Shift\nArithmetic"
+		  SourceType		  "Shift Arithmetic"
+		  ShowPortLabels	  "FromPortIcon"
+		  SystemSampleTime	  "-1"
+		  FunctionWithSeparateData off
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
+		  GeneratePreprocessorConditionals off
+		  nBitShiftRight	  "-10"
+		  nBinPtShiftRight	  "0"
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "Shift\nArithmetic1"
+		  SID			  "1040"
+		  Ports			  [1, 1]
+		  Position		  [265, 415, 345, 455]
+		  LibraryVersion	  "1.225"
+		  SourceBlock		  "simulink/Logic and Bit\nOperations/Shift\nArithmetic"
+		  SourceType		  "Shift Arithmetic"
+		  ShowPortLabels	  "FromPortIcon"
+		  SystemSampleTime	  "-1"
+		  FunctionWithSeparateData off
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
+		  GeneratePreprocessorConditionals off
+		  nBitShiftRight	  "-10"
+		  nBinPtShiftRight	  "0"
+		}
+		Block {
+		  BlockType		  SignalSpecification
+		  Name			  "Signal Specification"
+		  SID			  "1003"
+		  Position		  [115, 63, 195, 87]
+		  ShowName		  off
+		  OutDataTypeStr	  "int32"
+		}
+		Block {
+		  BlockType		  SignalSpecification
+		  Name			  "Signal Specification1"
+		  SID			  "1004"
+		  Position		  [115, 168, 195, 192]
+		  ShowName		  off
+		  OutDataTypeStr	  "int16"
+		}
+		Block {
+		  BlockType		  SignalSpecification
+		  Name			  "Signal Specification2"
+		  SID			  "1041"
+		  Position		  [145, 423, 225, 447]
+		  ShowName		  off
+		  OutDataTypeStr	  "int32"
+		}
+		Block {
+		  BlockType		  SignalSpecification
+		  Name			  "Signal Specification3"
+		  SID			  "1042"
+		  Position		  [145, 523, 225, 547]
+		  ShowName		  off
+		  OutDataTypeStr	  "int16"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Subtract"
+		  SID			  "1011"
+		  Ports			  [2, 1]
+		  Position		  [230, 232, 260, 263]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Subtract1"
+		  SID			  "1043"
+		  Ports			  [2, 1]
+		  Position		  [260, 592, 290, 623]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  UnitDelay
+		  Name			  "s_s16_I_alpha_old"
+		  SID			  "1009"
+		  Position		  [140, 238, 175, 272]
+		  InputProcessing	  "Elements as channels (sample based)"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  UnitDelay
+		  Name			  "s_s16_I_alpha_old1"
+		  SID			  "1044"
+		  Position		  [170, 598, 205, 632]
+		  InputProcessing	  "Elements as channels (sample based)"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "s_s16_Psi_alpha_dt"
+		  SID			  "1013"
+		  Ports			  [2, 1]
+		  Position		  [730, 182, 760, 213]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  UnitDelay
+		  Name			  "s_s16_Psi_alpha_old1"
+		  SID			  "1018"
+		  Position		  [835, 258, 870, 292]
+		  BlockMirror		  on
+		  ShowName		  off
+		  InputProcessing	  "Elements as channels (sample based)"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  UnitDelay
+		  Name			  "s_s16_Psi_alpha_old2"
+		  SID			  "1046"
+		  Position		  [865, 618, 900, 652]
+		  BlockMirror		  on
+		  ShowName		  off
+		  InputProcessing	  "Elements as channels (sample based)"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "s_s16_Psi_beta_dt"
+		  SID			  "1045"
+		  Ports			  [2, 1]
+		  Position		  [760, 542, 790, 573]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  AccumDataTypeStr	  "int32"
+		  OutDataTypeStr	  "int32"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "s_s16_Psi_alpha"
+		  SID			  "412"
+		  Position		  [940, 203, 970, 217]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "s_s16_Psi_beta"
+		  SID			  "1002"
+		  Position		  [965, 563, 995, 577]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "s_s32_V_alpha"
+		  SrcPort		  1
+		  DstBlock		  "Signal Specification"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "s_s16_I_alpha"
+		  SrcPort		  1
+		  Points		  [10, 0]
+		  Branch {
+		    DstBlock		    "Signal Specification1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 75]
+		    DstBlock		    "s_s16_I_alpha_old"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Signal Specification"
+		  SrcPort		  1
+		  DstBlock		  "Shift\nArithmetic"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Signal Specification1"
+		  SrcPort		  1
+		  Points		  [10, 0]
+		  Branch {
+		    DstBlock		    "MOT_RES_SCU19"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 60]
+		    DstBlock		    "Subtract"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Shift\nArithmetic"
+		  SrcPort		  1
+		  DstBlock		  "Add"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "MOT_RES_SCU19"
+		  SrcPort		  1
+		  Points		  [25, 0; 0, -85]
+		  DstBlock		  "Add"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Add"
+		  SrcPort		  1
+		  Points		  [95, 0; 0, 75]
+		  DstBlock		  "Add1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "s_s16_I_alpha_old"
+		  SrcPort		  1
+		  DstBlock		  "Subtract"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Subtract"
+		  SrcPort		  1
+		  DstBlock		  "Data Type Conversion"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Data Type Conversion"
+		  SrcPort		  1
+		  DstBlock		  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ"
+		  SrcPort		  1
+		  Points		  [40, 0; 0, -75]
+		  DstBlock		  "Add1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Add1"
+		  SrcPort		  1
+		  Points		  [10, 0; 0, 20]
+		  DstBlock		  "s_s16_Psi_alpha_dt"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "FOC_K_FACTOR_FLUX_EST"
+		  SrcPort		  1
+		  Points		  [-35, 0; 0, -70]
+		  DstBlock		  "s_s16_Psi_alpha_dt"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "s_s16_Psi_alpha_dt"
+		  SrcPort		  1
+		  DstBlock		  "Add3"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Add3"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "s_s16_Psi_alpha_old1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "s_s16_Psi_alpha"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "s_s16_Psi_alpha_old1"
+		  SrcPort		  1
+		  Points		  [-20, 0]
+		  Branch {
+		    Points		    [0, -60]
+		    DstBlock		    "Add3"
+		    DstPort		    2
+		  }
+		  Branch {
+		    DstBlock		    "FOC_K_FACTOR_FLUX_EST"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "s_s32_V_beta"
+		  SrcPort		  1
+		  DstBlock		  "Signal Specification2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "s_s16_I_beta"
+		  SrcPort		  1
+		  Points		  [10, 0]
+		  Branch {
+		    Points		    [0, 80]
+		    DstBlock		    "s_s16_I_alpha_old1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Signal Specification3"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Signal Specification2"
+		  SrcPort		  1
+		  DstBlock		  "Shift\nArithmetic1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Signal Specification3"
+		  SrcPort		  1
+		  Points		  [10, 0]
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "Subtract1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "MOT_RES_SCU1"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Shift\nArithmetic1"
+		  SrcPort		  1
+		  DstBlock		  "Add2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "MOT_RES_SCU1"
+		  SrcPort		  1
+		  Points		  [55, 0]
+		  DstBlock		  "Add2"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Add2"
+		  SrcPort		  1
+		  Points		  [95, 0; 0, 75]
+		  DstBlock		  "Add4"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "s_s16_I_alpha_old1"
+		  SrcPort		  1
+		  DstBlock		  "Subtract1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Subtract1"
+		  SrcPort		  1
+		  DstBlock		  "Data Type Conversion1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Data Type Conversion1"
+		  SrcPort		  1
+		  DstBlock		  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "MOT_INDUCTANCE_SCU19*FOC_SAMPLE_FREQ_HZ1"
+		  SrcPort		  1
+		  Points		  [40, 0; 0, -75]
+		  DstBlock		  "Add4"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Add4"
+		  SrcPort		  1
+		  Points		  [10, 0; 0, 20]
+		  DstBlock		  "s_s16_Psi_beta_dt"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "FOC_K_FACTOR_FLUX_EST1"
+		  SrcPort		  1
+		  Points		  [-35, 0; 0, -70]
+		  DstBlock		  "s_s16_Psi_beta_dt"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "s_s16_Psi_beta_dt"
+		  SrcPort		  1
+		  DstBlock		  "Add5"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Add5"
+		  SrcPort		  1
+		  Points		  [25, 0]
+		  Branch {
+		    Points		    [0, 65]
+		    DstBlock		    "s_s16_Psi_alpha_old2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "s_s16_Psi_beta"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "s_s16_Psi_alpha_old2"
+		  SrcPort		  1
+		  Points		  [-20, 0]
+		  Branch {
+		    DstBlock		    "FOC_K_FACTOR_FLUX_EST1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -60]
+		    DstBlock		    "Add5"
+		    DstPort		    2
+		  }
+		}
+		Annotation {
+		  Name			  "[V]*2^10"
+		  Position		  [97, 50]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "[A]*2^1"
+		  Position		  [102, 155]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "[V]*2^20"
+		  Position		  [357, 45]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "[V]*2^20"
+		  Position		  [427, 150]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "s32"
+		  Position		  [555, 47]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "s32"
+		  Position		  [595, 217]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "[V]*2^10"
+		  Position		  [127, 410]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "[A]*2^1"
+		  Position		  [132, 510]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "[V]*2^20"
+		  Position		  [387, 405]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "[V]*2^20"
+		  Position		  [457, 510]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "s32"
+		  Position		  [585, 407]
+		  BackgroundColor	  "yellow"
+		}
+		Annotation {
+		  Name			  "s32"
+		  Position		  [625, 577]
+		  BackgroundColor	  "yellow"
+		}
+	      }
+	    }
+	    Block {
 	      BlockType		      Constant
 	      Name		      "sel_spd_mode2"
 	      SID		      "583"
@@ -12267,34 +12909,6 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Demux2"
-	      SrcPort		      1
-	      Points		      [65, 0; 0, 175]
-	      DstBlock		      "Switch"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Demux2"
-	      SrcPort		      2
-	      Points		      [50, 0; 0, 175]
-	      DstBlock		      "Switch1"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "ACR_output_Sel"
-	      SrcPort		      1
-	      Points		      [50, 0]
-	      Branch {
-		DstBlock		"Switch"
-		DstPort			2
-	      }
-	      Branch {
-		Points			[0, 35]
-		DstBlock		"Switch1"
-		DstPort			2
-	      }
-	    }
-	    Line {
 	      SrcBlock		      "ParkTransformation"
 	      SrcPort		      1
 	      Points		      [5, 0]
@@ -12425,7 +13039,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      SubSystem
-	      Name		      "Iuvw_Meas1"
+	      Name		      "Iuvw_Meas"
 	      SID		      "860"
 	      Ports		      [1, 1]
 	      Position		      [90, 99, 225, 141]
@@ -12437,7 +13051,7 @@ Model {
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      System {
-		Name			"Iuvw_Meas1"
+		Name			"Iuvw_Meas"
 		Location		[35, 355, 1075, 726]
 		Open			off
 		ModelBrowserVisibility	on
@@ -12681,7 +13295,7 @@ Model {
 		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "97"
+		    ZoomFactor		    "121"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In1"
@@ -12718,26 +13332,6 @@ Model {
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
-		    BlockType		    Sum
-		    Name		    "Add2"
-		    SID			    "882"
-		    Ports		    [2, 1]
-		    Position		    [885, 297, 915, 328]
-		    InputSameDT		    off
-		    OutDataTypeStr	    "double"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    Sum
-		    Name		    "Add3"
-		    SID			    "883"
-		    Ports		    [2, 1]
-		    Position		    [1075, 377, 1105, 408]
-		    InputSameDT		    off
-		    OutDataTypeStr	    "double"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
 		    BlockType		    Bias
 		    Name		    "Bias"
 		    SID			    "884"
@@ -12763,42 +13357,6 @@ Model {
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
-		    BlockType		    DataTypeConversion
-		    Name		    "Data Type Conversion1"
-		    SID			    "887"
-		    Position		    [690, 333, 730, 357]
-		    OutDataTypeStr	    "double"
-		    RndMeth		    "Floor"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    DataTypeConversion
-		    Name		    "Data Type Conversion3"
-		    SID			    "888"
-		    Position		    [965, 298, 1040, 332]
-		    OutDataTypeStr	    "int16"
-		    RndMeth		    "Floor"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    DataTypeConversion
-		    Name		    "Data Type Conversion4"
-		    SID			    "889"
-		    Position		    [1225, 378, 1300, 412]
-		    OutDataTypeStr	    "int16"
-		    RndMeth		    "Floor"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    DataTypeConversion
-		    Name		    "Data Type Conversion5"
-		    SID			    "890"
-		    Position		    [690, 293, 730, 317]
-		    OutDataTypeStr	    "double"
-		    RndMeth		    "Floor"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
 		    BlockType		    Demux
 		    Name		    "Demux"
 		    SID			    "891"
@@ -12820,16 +13378,6 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Gain
-		    Name		    "Gain1"
-		    SID			    "893"
-		    Position		    [750, 294, 825, 316]
-		    Gain		    "2^-9"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutDataTypeStr	    "double"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    Gain
 		    Name		    "Gain2"
 		    SID			    "894"
 		    Position		    [405, 179, 630, 221]
@@ -12840,32 +13388,12 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Gain
-		    Name		    "Gain3"
-		    SID			    "895"
-		    Position		    [750, 335, 770, 355]
-		    Gain		    "2^-9"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutDataTypeStr	    "double"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    Gain
 		    Name		    "Gain4"
 		    SID			    "896"
 		    Position		    [1150, 184, 1375, 226]
 		    Gain		    "ONEDIVSQRT3_SCU16"
 		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
 		    OutDataTypeStr	    "int32"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    Gain
-		    Name		    "Gain5"
-		    SID			    "897"
-		    Position		    [910, 385, 940, 415]
-		    Gain		    "-2"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutDataTypeStr	    "double"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
@@ -12885,16 +13413,6 @@ Model {
 		    Gain		    "-1"
 		    ParamDataTypeStr	    "int32"
 		    OutDataTypeStr	    "int16"
-		    SaturateOnIntegerOverflow off
-		    }
-		    Block {
-		    BlockType		    Gain
-		    Name		    "Gain8"
-		    SID			    "900"
-		    Position		    [1155, 380, 1185, 410]
-		    Gain		    "1/sqrt(3)"
-		    ParamDataTypeStr	    "Inherit: Inherit via internal rule"
-		    OutDataTypeStr	    "double"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
@@ -13106,71 +13624,6 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    SrcBlock		    "Add2"
-		    SrcPort		    1
-		    Points		    [15, 0]
-		    Branch {
-		    DstBlock		    "Data Type Conversion3"
-		    DstPort		    1
-		    }
-		    Branch {
-		    Points		    [0, 70]
-		    DstBlock		    "Add3"
-		    DstPort		    1
-		    }
-		    }
-		    Line {
-		    SrcBlock		    "Gain5"
-		    SrcPort		    1
-		    DstBlock		    "Add3"
-		    DstPort		    2
-		    }
-		    Line {
-		    SrcBlock		    "Add3"
-		    SrcPort		    1
-		    DstBlock		    "Gain8"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Gain8"
-		    SrcPort		    1
-		    DstBlock		    "Data Type Conversion4"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Data Type Conversion5"
-		    SrcPort		    1
-		    DstBlock		    "Gain1"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Data Type Conversion1"
-		    SrcPort		    1
-		    DstBlock		    "Gain3"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Gain1"
-		    SrcPort		    1
-		    DstBlock		    "Add2"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Gain3"
-		    SrcPort		    1
-		    Points		    [0, 0]
-		    Branch {
-		    Points		    [25, 0; 0, -25]
-		    DstBlock		    "Add2"
-		    DstPort		    2
-		    }
-		    Branch {
-		    Points		    [0, 55]
-		    DstBlock		    "Gain5"
-		    DstPort		    1
-		    }
-		    }
-		    Line {
 		    SrcBlock		    "Gain6"
 		    SrcPort		    1
 		    DstBlock		    "s_s16_I_alpha"
@@ -13252,6 +13705,11 @@ Model {
 		    Position		    [123, 100]
 		    BackgroundColor	    "yellow"
 		    }
+		    Annotation {
+		    Name		    "ADC scaling see Iuvw_Meas:\n-319A ... 319A -> 0 ... 1024 digits"
+		    Position		    [115, 263]
+		    BackgroundColor	    "yellow"
+		    }
 		  }
 		}
 		Block {
@@ -13282,7 +13740,7 @@ Model {
 		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "125"
+		    ZoomFactor		    "56"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In1"
@@ -13718,6 +14176,11 @@ Model {
 		    Position		    [668, 160]
 		    BackgroundColor	    "yellow"
 		    }
+		    Annotation {
+		    Name		    "ADC scaling see Iuvw_Meas:\n-319A ... 319A -> 0 ... 1024 digits"
+		    Position		    [205, 298]
+		    BackgroundColor	    "yellow"
+		    }
 		  }
 		}
 		Block {
@@ -13748,7 +14211,7 @@ Model {
 		    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
+		    ZoomFactor		    "95"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In1"
@@ -14135,6 +14598,11 @@ Model {
 		    Position		    [153, 95]
 		    BackgroundColor	    "yellow"
 		    }
+		    Annotation {
+		    Name		    "ADC scaling see Iuvw_Meas:\n-319A ... 319A -> 0 ... 1024 digits"
+		    Position		    [170, 243]
+		    BackgroundColor	    "yellow"
+		    }
 		  }
 		}
 		Block {
@@ -14370,11 +14838,11 @@ Model {
 	    Line {
 	      SrcBlock		      "Iuvw[A]"
 	      SrcPort		      1
-	      DstBlock		      "Iuvw_Meas1"
+	      DstBlock		      "Iuvw_Meas"
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Iuvw_Meas1"
+	      SrcBlock		      "Iuvw_Meas"
 	      SrcPort		      1
 	      DstBlock		      "_0_ADC_EVALUATION\n_1_CLARKE_TRANSFORMATION1"
 	      DstPort		      2
@@ -14632,7 +15100,7 @@ Model {
 Stateflow {
   machine {
     id			    1
-    name		    "eBooster_48v_Gen2_r2009a"
+    name		    "FOC_MIL"
     created		    "23-May-2017 11:49:13"
     isLibrary		    0
     firstTarget		    2
